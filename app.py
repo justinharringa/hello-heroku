@@ -1,10 +1,11 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    paragraph = {'body': 'Hey there!'}
+    return render_template('index.html', header='Tail', paragraph=paragraph)
 
 if __name__ == '__main__':
   port = int(os.environ.get('PORT', 5000))
